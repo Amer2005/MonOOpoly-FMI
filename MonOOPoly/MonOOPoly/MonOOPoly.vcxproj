@@ -136,6 +136,8 @@
     <ClCompile Include="MyString.cpp" />
     <ClCompile Include="PrintableField.cpp" />
     <ClCompile Include="PropertyField.cpp" />
+    <ClCompile Include="StartField.cpp" />
+    <ClCompile Include="StartField.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bank.h" />
@@ -149,6 +151,11 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PrintableField.h" />
     <ClInclude Include="PropertyField.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Fields.txt">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </Text>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

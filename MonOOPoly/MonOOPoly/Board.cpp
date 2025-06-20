@@ -1,6 +1,7 @@
 #include "Board.h"
 #include "Field.h"
 #include "PropertyField.h"
+#include "StartField.h"
 #include "PrintableField.h"
 #include "Config.h"
 #include <fstream>
@@ -28,23 +29,23 @@ void Board::loadFieldsFromFile(const char* path) {
 
         int index = 0;
         int type;
-        MyString name;
 
         while (index < numberOfFields)
         {
             file >> type;
-            file >> name;
 
             Field* curr = nullptr;
 
             if (type == FieldType::Property)
             {
+                MyString name;
                 MyString color;
                 int price;
                 int defaultRent;
                 int cottagePrice;
                 int castlePrice;
 
+                file >> name;
                 file >> color;
                 file >> price;
                 file >> defaultRent;
@@ -53,6 +54,10 @@ void Board::loadFieldsFromFile(const char* path) {
 
                 curr = new PropertyField(index, name, color, price, defaultRent,
                     cottagePrice, castlePrice);
+            }
+            else if (type == FieldType::Start)
+            {
+                curr = new StartField(index);
             }
 
             this->fields[index] = curr;

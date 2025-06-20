@@ -69,6 +69,12 @@
     <ClCompile Include="PrintableField.cpp">
       <Filter>Source Files\Models\Fields</Filter>
     </ClCompile>
+    <ClCompile Include="StartField.h">
+      <Filter>Header Files\Models\Fields</Filter>
+    </ClCompile>
+    <ClCompile Include="StartField.cpp">
+      <Filter>Source Files\Models\Fields</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyString.h">
@@ -104,5 +110,10 @@
     <ClInclude Include="PrintableField.h">
       <Filter>Header Files\Models\Fields</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Fields.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
