@@ -127,7 +127,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="MonOOPoly.cpp" />
+    <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Config.cpp" />
+    <ClCompile Include="Field.cpp" />
+    <ClCompile Include="FieldType.h" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Monopoly.cpp" />
+    <ClCompile Include="MyString.cpp" />
+    <ClCompile Include="PrintableField.cpp" />
+    <ClCompile Include="PropertyField.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Bank.h" />
+    <ClInclude Include="Board.h" />
+    <ClInclude Include="Card.h" />
+    <ClInclude Include="CardDeck.h" />
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="Field.h" />
+    <ClInclude Include="Monopoly.h" />
+    <ClInclude Include="MyString.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="PrintableField.h" />
+    <ClInclude Include="PropertyField.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
