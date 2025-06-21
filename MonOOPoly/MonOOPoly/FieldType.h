@@ -3,8 +3,8 @@
 enum FieldType {
 	Property = 0,
 	Start = 1,
-	CardField = 2,
-	GoToJailField = 3,
+	Card = 2,
+	GoToJail = 3,
 	Jail = 4,
 	Parking = 5
 };

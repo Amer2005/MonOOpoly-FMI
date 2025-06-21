@@ -18,5 +18,7 @@ public:
 
 	int getIndex() const;
 
-	virtual PrintableField* getPrintable() const = 0;
+	FieldType getType() const;
+
+	virtual PrintableField* getPrintable() const;
 };

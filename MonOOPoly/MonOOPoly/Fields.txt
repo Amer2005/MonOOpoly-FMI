@@ -1,46 +1,40 @@
 1
-0 b red 100 15 100 500
-0 c blue 100 15 100 500
-0 d blue 100 15 100 500
-0 e yellow 100 15 100 500
-0 f yellow 100 15 100 500 
-0 g green 100 15 100 500 
-0 h green 100 15 100 500 
-0 d blue 100 15 100 500
-0 e yellow 100 15 100 500
-0 f yellow 100 15 100 500 
-0 g green 100 15 100 500 
-0 h green 100 15 100 500  
-0 d blue 100 15 100 500
-0 e yellow 100 15 100 500
-0 f yellow 100 15 100 500 
-0 g green 100 15 100 500 
-0 h green 100 15 100 500  
-0 d blue 100 15 100 500
-0 e yellow 100 15 100 500
-0 f yellow 100 15 100 500 
-0 g green 100 15 100 500 
-0 h green 100 15 100 500   
-0 a red 100 15 100 500
-0 b red 100 15 100 500
-0 c blue 100 15 100 500
-0 d blue 100 15 100 500
-0 e yellow 100 15 100 500
-0 f yellow 100 15 100 500 
-0 g green 100 15 100 500 
-0 h green 100 15 100 500 
-0 d blue 100 15 100 500
-0 e yellow 100 15 100 500
-0 f yellow 100 15 100 500 
-0 g green 100 15 100 500 
-0 h green 100 15 100 500  
-0 d blue 100 15 100 500
-0 e yellow 100 15 100 500
-0 f yellow 100 15 100 500 
-0 g green 100 15 100 500 
-0 h green 100 15 100 500  
-0 d blue 100 15 100 500
-0 e yellow 100 15 100 500
-0 f yellow 100 15 100 500 
-0 g green 100 15 100 500 
-0 h green 100 15 100 500   
+0 Elm red 100 15 100 500
+0 Oak red 100 15 100 500
+0 Pine red 100 15 100 500
+2
+0 Maple blue 100 15 100 500
+0 Ash blue 100 15 100 500
+0 Cove blue 100 15 100 500
+3
+0 Glen green 100 15 100 500
+0 Hill green 100 15 100 500
+0 Park green 100 15 100 500
+4
+0 Lake cyan 100 15 100 500
+0 West cyan 100 15 100 500
+0 East cyan 100 15 100 500
+5
+0 Main pink 100 15 100 500
+0 Rose pink 100 15 100 500
+0 Beach pink 100 15 100 500
+2
+0 Birch gray 100 15 100 500
+0 Vine gray 100 15 100 500
+0 Ford gray 100 15 100 500
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5

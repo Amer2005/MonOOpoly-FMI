@@ -1,7 +1,12 @@
-#include "Board.h"
-#include "Field.h"
 #include "PropertyField.h"
 #include "StartField.h"
+#include "CardField.h"
+#include "GoToJailField.h"
+#include "JailField.h"
+#include "ParkingField.h"
+
+#include "Board.h"
+#include "Field.h"
 #include "PrintableField.h"
 #include "Config.h"
 #include <fstream>
@@ -58,6 +63,22 @@ void Board::loadFieldsFromFile(const char* path) {
             else if (type == FieldType::Start)
             {
                 curr = new StartField(index);
+            }
+            else if (type == FieldType::Card)
+            {
+                curr = new CardField(index);
+            }
+            else if (type == FieldType::GoToJail)
+            {
+                curr = new GoToJailField(index);
+            }
+            else if (type == FieldType::Jail)
+            {
+                curr = new JailField(index);
+            }
+            else if (type == FieldType::Parking)
+            {
+                curr = new ParkingField(index);
             }
 
             this->fields[index] = curr;
@@ -218,9 +239,66 @@ void Board::print()
     delete[] printableFields;
 }
 
+bool Board::getIsGameOver()
+{
+    return this->isGameOver;
+}
+
+void Board::setPlayers(MyString** names, int playerCount)
+{
+    this->playerCount = playerCount;
+
+    players = new Player* [playerCount] {nullptr};
+
+    for (int i = 0; i < playerCount; i++)
+    {
+        players[i] = new Player(i, *names[i]);
+    }
+}
+
+Player* Board::getPlayerByIndex(int index)
+{
+    if (index < 0)
+    {
+
+    }
+
+    return players[index];
+}
+
+int Board::getActivePlayerIndex()
+{
+    return this->activePlayerIndex;
+}
+
+void Board::setActivePlayerIndex(int value)
+{
+    if (value < 0)
+    {
+        value = 0;
+    }
+
+    if (value >= playerCount)
+    {
+        value = value % playerCount;
+    }
+
+    this->activePlayerIndex = value;
+}
+
+Field* Board::getFieldByIndex(int index)
+{
+    return this->fields[index];
+}
+
 Board::~Board() {
     for (int i = 0; i < numberOfFields; ++i) {
         delete fields[i];
     }
     delete[] fields;
+
+    for (int i = 0; i < playerCount; ++i) {
+        delete players[i];
+    }
+    delete[] players;
 }

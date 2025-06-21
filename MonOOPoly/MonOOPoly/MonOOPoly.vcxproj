@@ -127,30 +127,52 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bank.cpp" />
     <ClCompile Include="Board.cpp" />
+    <ClCompile Include="CardField.cpp" />
+    <ClCompile Include="CommandExecutor.cpp" />
     <ClCompile Include="Config.cpp" />
+    <ClCompile Include="ConsoleColor.cpp" />
+    <ClCompile Include="Dice.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="FieldType.h" />
+    <ClCompile Include="GoToJailField.cpp" />
+    <ClCompile Include="JailField.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Monopoly.cpp" />
+    <ClCompile Include="MoveForwardCommand.cpp" />
     <ClCompile Include="MyString.cpp" />
+    <ClCompile Include="ParkingField.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="PrintableField.cpp" />
     <ClCompile Include="PropertyField.cpp" />
     <ClCompile Include="StartField.cpp" />
     <ClCompile Include="StartField.h" />
+    <ClCompile Include="StartNewGameCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bank.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="CardDeck.h" />
+    <ClInclude Include="CardField.h" />
+    <ClInclude Include="ColorType.h" />
+    <ClInclude Include="Command.h" />
+    <ClInclude Include="CommandExecutor.h" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="ConsoleColor.h" />
+    <ClInclude Include="Dice.h" />
     <ClInclude Include="Field.h" />
+    <ClInclude Include="GoToJailField.h" />
+    <ClInclude Include="JailField.h" />
     <ClInclude Include="Monopoly.h" />
+    <ClInclude Include="MoveForwardCommand.h" />
     <ClInclude Include="MyString.h" />
+    <ClInclude Include="ParkingField.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PrintableField.h" />
     <ClInclude Include="PropertyField.h" />
+    <ClInclude Include="StartNewGameCommand.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Fields.txt">

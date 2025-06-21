@@ -21,5 +21,13 @@ public:
 		const MyString& color, 
 		int price, int defaultRent, int cottagePrice, int castlePrice);
 
+	int getPrice();
+	int getDefaultRent();
+	int getCottagePrice();
+	int getCastlePrice();
+
+	Player* getOwner();
+	void setOwner(Player* newOwner);
+
 	PrintableField* getPrintable() const override;
 };
