@@ -45,5 +45,11 @@ public:
 
 	Field* getFieldByIndex(int index);
 
+	int getJailFieldIndex();
+
+	void endTurn();
+
+	int getNumberOfPropertiesOwnedByPlayer(int playerIndex);
+
 	~Board();
 };

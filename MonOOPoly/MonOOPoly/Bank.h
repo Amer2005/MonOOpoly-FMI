@@ -1,24 +1,14 @@
 #pragma once
 #include "PropertyField.h"
+#include "Board.h"
 class Bank
 {
 private:
 
 public:
-	void BuyProperty(PropertyField* propertyField, Player* player)
-	{
-		int price = propertyField->getPrice();
-		int balance = player->getBalance();
+	void buyProperty(PropertyField* propertyField, Player* player);
 
-		if (balance < price)
-		{
-			return;
-		}
+	void payRent(Board* board, PropertyField* propertyField, Player* renter);
 
-		propertyField->setOwner(player);
-
-		balance -= price;
-
-		player->setBalance(balance);
-	}
+	void sellProperty(PropertyField* propertyField, Player* player);
 };

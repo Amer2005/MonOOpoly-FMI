@@ -7,9 +7,5 @@ int main()
 
     monopoly->run();
 
-    int a;
-
-    std::cin >> a;
-
     return 0;
 }

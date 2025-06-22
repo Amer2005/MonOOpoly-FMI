@@ -30,17 +30,15 @@ void Monopoly::printTurnMessage(Board* board)
 	Player* player = board->getPlayerByIndex(playerIndex);
 
 	std::cout << "Player ";
-	ConsoleColor::setConsoleColor(static_cast<ColorType>(player->getIndex() + 1));
 
-	std::cout << player->getName();
-
-	ConsoleColor::setConsoleColor(ColorType::Default);
+	player->printName();
 
 	std::cout << "'s turn" << std::endl;
 	std::cout << "Current position: " << player->getCurrentFieldIndex() << std::endl;
 	std::cout << "Valid commands: " << std::endl;
 	std::cout << "roll - roll the dice and move forward" << std::endl;
 	std::cout << "trade <player name> <property index> <value> - offer to sell property to player" << std::endl;
+	std::cout << "resign - give up and forfeit the game" << std::endl;
 }
 
 void Monopoly::run()
@@ -55,7 +53,7 @@ void Monopoly::run()
 	
 	mainMenu();
 
-	while (!board->getIsGameOver())
+	while (true)
 	{
 		MyString input;
 
@@ -74,6 +72,21 @@ void Monopoly::run()
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			
 			exception = true;
+		}
+
+		if (board->getIsGameOver())
+		{
+			int playerIndex = board->getActivePlayerIndex();
+
+			Player* player = board->getPlayerByIndex(playerIndex);
+
+			std::cout << "Player ";
+
+			player->printName();
+
+			std::cout << " won the game!" << std::endl;
+
+			break;
 		}
 
 		if (!exception)

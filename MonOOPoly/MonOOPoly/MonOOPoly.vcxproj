@@ -146,6 +146,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PrintableField.cpp" />
     <ClCompile Include="PropertyField.cpp" />
+    <ClCompile Include="ResignCommand.cpp" />
     <ClCompile Include="StartField.cpp" />
     <ClCompile Include="StartField.h" />
     <ClCompile Include="StartNewGameCommand.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PrintableField.h" />
     <ClInclude Include="PropertyField.h" />
+    <ClInclude Include="ResignCommand.h" />
     <ClInclude Include="StartNewGameCommand.h" />
   </ItemGroup>
   <ItemGroup>

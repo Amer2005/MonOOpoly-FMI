@@ -20,5 +20,5 @@ public:
 
 	FieldType getType() const;
 
-	virtual PrintableField* getPrintable() const;
+	virtual PrintableField* getPrintable();
 };

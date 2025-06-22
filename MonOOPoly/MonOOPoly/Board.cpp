@@ -291,6 +291,82 @@ Field* Board::getFieldByIndex(int index)
     return this->fields[index];
 }
 
+int Board::getJailFieldIndex()
+{
+    for (int i = 0; i < numberOfFields; i++)
+    {
+        if(fields[i]->getType() == FieldType::Jail)
+        {
+            return i;
+        }
+    }
+
+    return 0;
+}
+
+void Board::endTurn()
+{
+    int playerIndex = this->getActivePlayerIndex();
+
+    int startingPlayerIndex = playerIndex;
+
+    do
+    {
+        playerIndex++;
+
+        playerIndex = playerIndex % playerCount;
+
+        if (!this->players[playerIndex]->getIsResigned())
+        {
+            break;
+        }
+    } while (playerIndex != startingPlayerIndex);
+
+    this->setActivePlayerIndex(playerIndex);
+
+    //check for game over
+    int numberOfActivePlayers = 0;
+
+    for (int i = 0; i < playerCount; i++)
+    {
+        if (!players[i]->getIsResigned())
+        {
+            numberOfActivePlayers++;
+        }
+    }
+
+    if (numberOfActivePlayers <= 1)
+    {
+        this->isGameOver = true;
+    }
+}
+
+int Board::getNumberOfPropertiesOwnedByPlayer(int playerIndex)
+{
+    int result = 0;
+
+    for (int i = 0; i < numberOfFields; i++)
+    {
+        Field* curr = fields[i];
+        if (curr->getType() == FieldType::Property)
+        {
+            PropertyField* property = static_cast<PropertyField*>(curr);
+
+            if (property->getOwner() == nullptr)
+            {
+                continue;
+            }
+
+            if (property->getOwner()->getIndex() == playerIndex)
+            {
+                result++;
+            }
+        }
+    }
+
+    return result;
+}
+
 Board::~Board() {
     for (int i = 0; i < numberOfFields; ++i) {
         delete fields[i];

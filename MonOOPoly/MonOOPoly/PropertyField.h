@@ -26,8 +26,10 @@ public:
 	int getCottagePrice();
 	int getCastlePrice();
 
+	int getCurrentRent();
+
 	Player* getOwner();
 	void setOwner(Player* newOwner);
 
-	PrintableField* getPrintable() const override;
+	PrintableField* getPrintable() override;
 };

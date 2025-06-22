@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Config.h"
+#include "ConsoleColor.h"
 
 Player::Player(int index, const MyString& name)
 {
@@ -57,4 +58,33 @@ void Player::setBalance(int value)
 	}
 
 	this->balance = value;
+}
+
+bool Player::getIsInJail()
+{
+	return this->isInJail;
+}
+
+void Player::printName()
+{
+	ConsoleColor::setConsoleColor(static_cast<ColorType>(this->index + 1));
+
+	std::cout << this->name;
+
+	ConsoleColor::setConsoleColor(ColorType::Default);
+}
+
+void Player::setIsInJail(bool value)
+{
+	this->isInJail = value;
+}
+
+bool Player::getIsResigned()
+{
+	return this->isResigned;
+}
+
+void Player::setIsResigned(bool value)
+{
+	this->isResigned = value;
 }

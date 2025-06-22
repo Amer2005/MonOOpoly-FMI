@@ -3,6 +3,8 @@
 #include "Command.h"
 #include "StartNewGameCommand.h";
 #include "MoveForwardCommand.h"
+#include "ResignCommand.h"
+
 void CommandExecutor::executeCommand(const MyString& input)
 {
 	Command* command;
@@ -14,6 +16,10 @@ void CommandExecutor::executeCommand(const MyString& input)
 	else if (input == "roll")
 	{
 		command = new MoveForwardCommand();
+	}
+	else if (input == "resign")
+	{
+		command = new ResignCommand();
 	}
 	else
 	{

@@ -7,5 +7,10 @@ enum ColorType {
 	Player3,
 	Player4,
 	Player5,
-	Player6
+	Player6,
+	JailColor,
+	GoToJailColor,
+	DrawCardColor,
+	ParkingColor,
+	StartColor
 };

@@ -1,40 +1,24 @@
 1
-0 Elm red 100 15 100 500
-0 Oak red 100 15 100 500
-0 Pine red 100 15 100 500
+0 Elm red 60 2 50 250
+0 Oak red 60 4 50 250
+0 Pine red 60 6 50 250
 2
-0 Maple blue 100 15 100 500
-0 Ash blue 100 15 100 500
-0 Cove blue 100 15 100 500
-3
-0 Glen green 100 15 100 500
-0 Hill green 100 15 100 500
-0 Park green 100 15 100 500
+0 Maple blue 140 10 100 500
+0 Ash blue 140 20 100 500
+0 Cove blue 140 30 100 500
+5
+0 Glen green 220 18 150 750
+0 Hill green 220 36 150 750
+0 Park green 220 54 150 750
 4
-0 Lake cyan 100 15 100 500
-0 West cyan 100 15 100 500
-0 East cyan 100 15 100 500
+0 Lake cyan 280 22 200 1000
+0 West cyan 280 44 200 1000
+0 East cyan 280 66 200 1000
 5
-0 Main pink 100 15 100 500
-0 Rose pink 100 15 100 500
-0 Beach pink 100 15 100 500
+0 Main pink 320 26 200 1000
+0 Rose pink 320 52 200 1000
+0 Beach pink 320 78 200 1000
 2
-0 Birch gray 100 15 100 500
-0 Vine gray 100 15 100 500
-0 Ford gray 100 15 100 500
-5
-5
-5
-5
-5
-5
-5
-5
-5
-5
-5
-5
-5
-5
-5
-5
+0 Birch gray 400 35 250 1250
+0 Vine gray 400 70 250 1250
+0 Ford gray 400 105 250 1250
