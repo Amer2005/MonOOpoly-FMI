@@ -111,7 +111,7 @@ void MoveForwardCommand::rollDice(Board* board, Bank* bank, Player* player, int 
 		ConsoleUtil::waitForAnyInput();
 	}
 
-	if (dice[0] == dice[1] && !board->getIsGameOver())
+	if (dice[0] == dice[1] && !board->getIsGameOver() && !player->getIsInJail())
 	{
 		std::cout << "You rolled a pair you get another roll!"<< std::endl;
 

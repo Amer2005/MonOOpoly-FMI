@@ -6,6 +6,8 @@
 #include "ResignCommand.h"
 #include "TradeCommand.h"
 #include "GetPlayersInfoCommand.h"
+#include "PropertyInfoCommand.h"
+#include "PayJailCommand.h"
 
 void CommandExecutor::executeCommand(const MyString& input)
 {
@@ -34,6 +36,14 @@ void CommandExecutor::executeCommand(const MyString& input)
 	else if (input == "upgrade")
 	{
 		command = new UpgradePropertyCommand();
+	}
+	else if (input == "info")
+	{
+		command = new PropertyInfoCommand();
+	}
+	else if (input == "pay")
+	{
+		command = new PayJailCommand();
 	}
 	else
 	{

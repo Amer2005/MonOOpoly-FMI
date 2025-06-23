@@ -618,9 +618,6 @@ void Board::loadFromFile(const char* path)
 
     }
 
-    MyString input;
-    std::cin >> input;
-
     file.close();
 }
 

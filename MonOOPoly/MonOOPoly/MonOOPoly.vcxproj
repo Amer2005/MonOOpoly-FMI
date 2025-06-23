@@ -148,9 +148,11 @@
     <ClCompile Include="MoveForwardCommand.cpp" />
     <ClCompile Include="MyString.cpp" />
     <ClCompile Include="ParkingField.cpp" />
+    <ClCompile Include="PayJailCommand.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PrintableField.cpp" />
     <ClCompile Include="PropertyField.cpp" />
+    <ClCompile Include="PropertyInfoCommand.cpp" />
     <ClCompile Include="ResignCommand.cpp" />
     <ClCompile Include="StartField.cpp" />
     <ClCompile Include="StartNewGameCommand.cpp" />
@@ -180,9 +182,11 @@
     <ClInclude Include="MoveForwardCommand.h" />
     <ClInclude Include="MyString.h" />
     <ClInclude Include="ParkingField.h" />
+    <ClInclude Include="PayJailCommand.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PrintableField.h" />
     <ClInclude Include="PropertyField.h" />
+    <ClInclude Include="PropertyInfoCommand.h" />
     <ClInclude Include="ResignCommand.h" />
     <ClInclude Include="StartField.h" />
     <ClInclude Include="StartNewGameCommand.h" />

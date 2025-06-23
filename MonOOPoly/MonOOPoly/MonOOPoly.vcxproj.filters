@@ -138,6 +138,12 @@
     <ClCompile Include="TakeMoneyCard.cpp">
       <Filter>Source Files\Models\Cards</Filter>
     </ClCompile>
+    <ClCompile Include="PropertyInfoCommand.cpp">
+      <Filter>Source Files\Models\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="PayJailCommand.cpp">
+      <Filter>Source Files\Models\Commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyString.h">
@@ -229,6 +235,12 @@
     </ClInclude>
     <ClInclude Include="MoveCard.h">
       <Filter>Header Files\Models\Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyInfoCommand.h">
+      <Filter>Header Files\Models\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="PayJailCommand.h">
+      <Filter>Header Files\Models\Commands</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -27,4 +27,6 @@ public:
     static const int TakeMoneyAmount;
 
     static const int NumberOfCardsInDeck;
+
+    static const int JailBailCost;
 };

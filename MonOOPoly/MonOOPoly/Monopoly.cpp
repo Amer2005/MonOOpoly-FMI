@@ -36,14 +36,26 @@ void Monopoly::printTurnMessage(Board* board)
 
 	std::cout << "'s turn" << std::endl;
 	std::cout << "Current position: " << player->getCurrentFieldIndex() << std::endl;
-	std::cout << "Current balance: " << player->getBalance() <<"$" << std::endl;
-	std::cout << "Valid commands: " << std::endl;
-	std::cout << "roll - Roll the dice and move forward" << std::endl;
-	std::cout << "trade <buyer index> <property index> <value> - Offer to sell property to buyer" << std::endl;
+	std::cout << "Current balance: " << player->getBalance() << "$" << std::endl;
+	std::cout << "Commands: " << std::endl;
+
+	if (!player->getIsInJail())
+	{
+		std::cout << "roll - Roll the dice and move forward" << std::endl;
+		std::cout << "trade <buyer index> <property index> <value> - Offer to sell property to buyer" << std::endl;
+		std::cout << "resign - Give up and forfeit the game" << std::endl;
+		std::cout << "upgrade <property index> - Add a house/hotel to property" << std::endl;
+	}
+	else
+	{
+		std::cout << "roll - Try and get out of jail by getting a pair" << std::endl;
+		std::cout << "pay - pay 100$ to get out of jail" << std::endl;
+	}
+
 	std::cout << "players - Get info of all players" << std::endl;
-	std::cout << "resign - Give up and forfeit the game" << std::endl;
-	std::cout << "upgrade <property index> - Add a house/hotel to property" << std::endl;
+	std::cout << "info <property index> - Get info about property" << std::endl;
 	std::cout << "exit - Save and exit game" << std::endl;
+	std::cout << std::endl;
 }
 
 void Monopoly::run()
