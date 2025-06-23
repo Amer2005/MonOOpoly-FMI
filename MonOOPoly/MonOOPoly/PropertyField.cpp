@@ -74,7 +74,12 @@ void PropertyField::setNumberOfCastles(int value)
 		return;
 	}
 
-	this->numberOfCottages = value;
+	this->numberOfCastles = value;
+}
+
+MyString PropertyField::getColor()
+{
+	return this->color;
 }
 
 PropertyField::PropertyField(int index, const MyString& name,
@@ -86,7 +91,7 @@ PropertyField::PropertyField(int index, const MyString& name,
 	this->defaultRent = defaultRent;
 	this->cottagePrice = cottagePrice;
 	this->castlePrice = castlePrice;
-	this->numberOfCottages = 0;
+	this->numberOfCottages = 4;
 	this->numberOfCastles = 0;
 }
 
@@ -129,12 +134,22 @@ PrintableField* PropertyField::getPrintable()
 
 	for (int i = 0;i < this->getNumberOfCottages();i++)
 	{
-		buildingsLine += "^ ";
+		buildingsLine += "^";
+
+		if (i != this->getNumberOfCottages() + this->getNumberOfCastles() - 1)
+		{
+			buildingsLine += " ";
+		}
 	}
 
 	for (int i = 0;i < this->getNumberOfCastles();i++)
 	{
 		buildingsLine += "#";
+
+		if (this->getNumberOfCottages() + i != this->getNumberOfCottages() + this->getNumberOfCastles() - 1)
+		{
+			buildingsLine += " ";
+		}
 	}
 
 	printableField->setLine(3, buildingsLine);

@@ -1,6 +1,7 @@
 #pragma once
 #include "Board.h"
 #include "Bank.h"
+#include "UpgradePropertyCommand.h"
 class CommandExecutor
 {
 private:

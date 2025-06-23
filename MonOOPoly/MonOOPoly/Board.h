@@ -57,5 +57,7 @@ public:
 
 	int getFieldCount();
 
+	bool doesPlayerOwnAllPropertiesOfColor(int playerIndex, MyString color);
+
 	~Board();
 };

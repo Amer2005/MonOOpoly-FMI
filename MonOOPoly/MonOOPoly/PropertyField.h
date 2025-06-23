@@ -40,5 +40,7 @@ public:
 	int getNumberOfCastles();
 	void setNumberOfCastles(int value);
 
+	MyString getColor();
+
 	PrintableField* getPrintable() override;
 };

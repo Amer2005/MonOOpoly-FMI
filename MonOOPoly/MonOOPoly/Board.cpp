@@ -390,6 +390,35 @@ int Board::getFieldCount()
     return this->numberOfFields;
 }
 
+bool Board::doesPlayerOwnAllPropertiesOfColor(int playerIndex, MyString color)
+{
+    for (int i = 0; i < numberOfFields; i++)
+    {
+        Field* curr = fields[i];
+        if (curr->getType() == FieldType::Property)
+        {
+            PropertyField* property = static_cast<PropertyField*>(curr);
+
+            if (property->getColor() != color)
+            {
+                continue;
+            }
+
+            if (property->getOwner() == nullptr)
+            {
+                return false;
+            }
+
+            if (property->getOwner()->getIndex() != playerIndex)
+            {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
 Board::~Board() {
     free();
 }

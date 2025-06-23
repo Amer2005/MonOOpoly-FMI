@@ -31,6 +31,10 @@ void CommandExecutor::executeCommand(const MyString& input)
 	{
 		command = new GetPlayersInfoCommand();
 	}
+	else if (input == "upgrade")
+	{
+		command = new UpgradePropertyCommand();
+	}
 	else
 	{
 		throw std::runtime_error("Please enter a valid command");
