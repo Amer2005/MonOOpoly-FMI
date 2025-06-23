@@ -1,6 +1,9 @@
 #include "Config.h"
 
-const char* Config::SaveFilePath = "Fields.txt";
+//CHANGING ANYTHING HERE MAKES SAVE FILES INCOMPATIBLE
+
+const char* Config::FieldsFilePath = "Fields.txt";
+const char* Config::SaveFilePath = "Save.txt";
 
 const int Config::MaxPlayers = 6;
 const int Config::MinPlayers = 2;

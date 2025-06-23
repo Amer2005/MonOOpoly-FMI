@@ -223,6 +223,8 @@ void Board::free()
         delete players[i];
     }
     delete[] players;
+
+    delete cardDeck;
 }
 
 void Board::print()
@@ -425,6 +427,201 @@ bool Board::doesPlayerOwnAllPropertiesOfColor(int playerIndex, MyString color)
     }
 
     return true;
+}
+
+void Board::saveToFile(const char* path)
+{
+    std::ofstream file(path);
+
+    if (!file.is_open()) return;
+
+    try
+    {
+        file << this->numberOfFields << " ";
+        file << this->playerCount << " ";
+        file << this->activePlayerIndex << " ";
+
+        for (int i = 0; i < playerCount; i++)
+        {
+            Player* player = this->getPlayerByIndex(i);
+
+            file << player->getIsResigned() << " ";
+            file << player->getCurrentFieldIndex() << " ";
+            file << player->getBalance() << " ";
+            file << player->getIsInJail() << " ";
+            file << player->getName() << " ";
+        }
+
+        for (int i = 0; i < numberOfFields; i++)
+        {
+            file << fields[i]->getType() << " ";
+            file << fields[i]->getName() << " ";
+
+            if (fields[i]->getType() == FieldType::Property)
+            {
+                PropertyField* property = static_cast<PropertyField*>(fields[i]);
+
+                file << property->getPrice() << " ";
+                file << property->getDefaultRent() << " ";
+                file << property->getCottagePrice() << " ";
+                file << property->getCastlePrice() << " ";
+
+                file << property->getNumberOfCottages() << " ";
+                file << property->getNumberOfCastles() << " ";
+                file << property->getColor() << " ";
+
+                if (property->getOwner() == nullptr)
+                {
+                    file << -1 << " ";
+                }
+                else
+                {
+                    file << property->getOwner()->getIndex() << " ";
+                }
+            }
+        }
+    }
+    catch (const std::exception&)
+    {
+
+    }
+
+    file.close();
+}
+
+void Board::loadFromFile(const char* path)
+{
+    std::ifstream file(path);
+
+    if (!file.is_open()) return;
+
+    free();
+
+    try
+    {
+        file >> this->numberOfFields;
+        file >> this->playerCount;
+        file >> this->activePlayerIndex;
+
+        players = new Player* [playerCount] { nullptr };
+        fields = new Field* [numberOfFields] { nullptr };
+        cardDeck = new CardDeck(Config::NumberOfCardsInDeck);
+
+        for (int i = 0; i < playerCount; i++)
+        {
+            bool isResigned = false;
+
+            int currentFieldIndex = 0;
+
+            int balance = 0;
+
+            bool isInJail = false;
+
+            MyString name;
+
+            file >> isResigned;
+            file >> currentFieldIndex;
+            file >> balance;
+            file >> isInJail;
+            file >> name;
+
+            Player* player = new Player(i, name);
+
+            player->setIsResigned(isResigned);
+            player->setCurrentFieldIndex(currentFieldIndex);
+            player->setBalance(balance);
+            player->setIsInJail(isInJail);
+
+            players[i] = player;
+        }
+
+        for (int i = 0; i < numberOfFields; i++)
+        {
+            int fieldType;
+            MyString name;
+
+            file >> fieldType;
+
+            file >> name;
+
+            Field* result = new ParkingField(i);
+
+            if (fieldType == FieldType::Property)
+            {
+                delete result;
+
+                int price;
+                int defaultRent;
+                int cottagePrice;
+                int castlePrice;
+
+                int numberOfCottages;
+                int numberOfCastles;
+
+                MyString color;
+
+                int ownerIndex;
+
+                file >> price;
+                file >> defaultRent;
+                file >> cottagePrice;
+                file >> castlePrice;
+
+                file >> numberOfCottages;
+                file >> numberOfCastles;
+                file >> color;
+                file >> ownerIndex;
+
+                PropertyField* property = 
+                    new PropertyField(i, name, color, price, defaultRent, cottagePrice, castlePrice);
+                property->setNumberOfCottages(numberOfCottages);
+                property->setNumberOfCastles(numberOfCastles);
+
+                if (ownerIndex != -1)
+                {
+                    property->setOwner(players[ownerIndex]);
+                }
+
+                result = property;
+            }
+            else if (fieldType == FieldType::Start)
+            {
+                delete result;
+                result = new StartField(i);
+            }
+            else if (fieldType == FieldType::Card)
+            {
+                delete result;
+                result = new CardField(i);
+            }
+            else if (fieldType == FieldType::GoToJail)
+            {
+                delete result;
+                result = new GoToJailField(i);
+            }
+            else if (fieldType == FieldType::Jail)
+            {
+                delete result;
+                result = new JailField(i);
+            }
+            else
+            {
+                delete result;
+                result = new ParkingField(i);
+            }
+
+            fields[i] = result;
+        }
+    }
+    catch (const std::exception&)
+    {
+
+    }
+
+    MyString input;
+    std::cin >> input;
+
+    file.close();
 }
 
 Board::~Board() {

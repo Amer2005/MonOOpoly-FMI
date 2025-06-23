@@ -91,7 +91,7 @@ PropertyField::PropertyField(int index, const MyString& name,
 	this->defaultRent = defaultRent;
 	this->cottagePrice = cottagePrice;
 	this->castlePrice = castlePrice;
-	this->numberOfCottages = 4;
+	this->numberOfCottages = 0;
 	this->numberOfCastles = 0;
 }
 

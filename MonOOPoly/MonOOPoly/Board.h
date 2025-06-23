@@ -64,6 +64,10 @@ public:
 
 	bool doesPlayerOwnAllPropertiesOfColor(int playerIndex, MyString color);
 
+	void saveToFile(const char* path);
+
+	void loadFromFile(const char* path);
+
 	CardModel* drawCard();
 
 	~Board();

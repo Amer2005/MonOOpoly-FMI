@@ -1,4 +1,5 @@
 #include "Field.h"
+#include <fstream>
 
 Field::Field(int index, FieldType type, const MyString& name)
 {

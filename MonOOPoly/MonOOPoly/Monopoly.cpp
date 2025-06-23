@@ -51,32 +51,41 @@ void Monopoly::run()
 	Dice::init();
 	ConsoleUtil::init();
 
-	Board* board = new Board(Config::SaveFilePath);
+	Board* board = new Board(Config::FieldsFilePath);
 	Bank* bank = new Bank();
 
-	CommandExecutor* commandExecutor = new CommandExecutor(board, bank);
-	
 	mainMenu();
+
+	CommandExecutor* commandExecutor = new CommandExecutor(board, bank);
 
 	while (true)
 	{
 		MyString input;
 
-		bool exception = false;
-
 		std::cin >> input;
 
 		try
 		{
-			commandExecutor->executeCommand(input);
+			if (input == "exit")
+			{
+				board->saveToFile(Config::SaveFilePath);
+
+				break;
+			}
+			if (input == "load")
+			{
+				board->loadFromFile(Config::SaveFilePath);
+			}
+			else
+			{
+				commandExecutor->executeCommand(input);
+			}
 		}
 		catch (const std::exception& e)
 		{
 			std::cout << e.what() << std::endl;
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			
-			exception = true;
 
 			ConsoleUtil::waitForAnyInput();
 		}

@@ -12,6 +12,7 @@ public:
     static const int MoneyGivenOnStartField;
     
     static const char* SaveFilePath;
+    static const char* FieldsFilePath;
 
     static const int BoardWidth;
     static const int BoardHeight;
