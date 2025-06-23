@@ -9,6 +9,7 @@
 #include "Field.h"
 #include "PrintableField.h"
 #include "Config.h"
+#include "CardDeck.h"
 #include <fstream>
 #include <iostream>
 
@@ -17,6 +18,8 @@ Board::Board(const char* loadFromFilePath) {
     int boardWidth = Config::BoardWidth;
     
     this->numberOfFields = boardWidth * 2 + boardHeight * 2 - 4; //-4 for repeat corner cells
+
+    this->cardDeck = new CardDeck(Config::NumberOfCardsInDeck);
 
     loadFieldsFromFile(loadFromFilePath);
 }
@@ -202,6 +205,11 @@ int Board::getCorrectIndex(int index)
     }
 
     return index;
+}
+
+CardModel* Board::drawCard()
+{
+    return this->cardDeck->drawCard();
 }
 
 void Board::free()

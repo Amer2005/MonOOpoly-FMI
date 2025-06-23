@@ -5,5 +5,5 @@
 
 class GiveMoneyCard : public CardModel
 {
-	void doAction(Board* board, Bank* bank) override;
+	void doAction(Board* board) override;
 };

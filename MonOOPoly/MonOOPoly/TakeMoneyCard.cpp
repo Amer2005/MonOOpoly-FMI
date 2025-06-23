@@ -1,6 +1,7 @@
 #include "TakeMoneyCard.h"
+#include "Board.h"
 
-void TakeMoneyCard::doAction(Board* board, Bank* bank)
+void TakeMoneyCard::doAction(Board* board)
 {
 	int playerIndex = board->getActivePlayerIndex();
 	Player* player = board->getPlayerByIndex(playerIndex);

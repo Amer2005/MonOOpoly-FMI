@@ -22,3 +22,5 @@ const int Config::CastlePriceIncreasePercentage = 50;
 
 const int Config::MoneyChangeMaxCardAmount = 200;
 const int Config::TakeMoneyAmount = 100;
+
+const int Config::NumberOfCardsInDeck = 30;

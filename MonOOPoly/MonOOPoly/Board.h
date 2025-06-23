@@ -3,6 +3,9 @@
 #include "PrintableField.h"
 #include "Player.h"
 
+class CardDeck;
+class CardModel;
+
 class Board {
 private:
 	bool isGameOver = false;
@@ -16,6 +19,8 @@ private:
 	Field** fields;
 
 	Player** players;
+
+	CardDeck* cardDeck;
 
 	void loadFieldsFromFile(const char* path);
 
@@ -58,6 +63,8 @@ public:
 	int getFieldCount();
 
 	bool doesPlayerOwnAllPropertiesOfColor(int playerIndex, MyString color);
+
+	CardModel* drawCard();
 
 	~Board();
 };

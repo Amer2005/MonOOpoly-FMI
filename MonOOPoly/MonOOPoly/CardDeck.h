@@ -21,7 +21,7 @@ private:
 public:
 	CardDeck(int numberOfCards);
 
-	void drawCard(Board* board, Bank* bank);
+	CardModel* drawCard();
 
 	~CardDeck();
 };

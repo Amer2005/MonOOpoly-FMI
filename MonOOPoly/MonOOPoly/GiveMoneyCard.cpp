@@ -1,6 +1,8 @@
 #include "GiveMoneyCard.h"
+#include "Board.h"
+#include "Bank.h"
 
-void GiveMoneyCard::doAction(Board* board, Bank* bank)
+void GiveMoneyCard::doAction(Board* board)
 {
 	int changeAmount = Dice::generateRandomNumberInclusive(0, Config::MoneyChangeMaxCardAmount);
 

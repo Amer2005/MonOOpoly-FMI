@@ -4,6 +4,7 @@
 #include <iostream>
 #include "ConsoleUtil.h"
 #include "Config.h"
+#include "CardModel.h"
 
 void MoveForwardCommand::run(Board* board, Bank* bank) const
 {
@@ -89,6 +90,10 @@ void MoveForwardCommand::rollDice(Board* board, Bank* bank, Player* player, int 
 	else if (fieldType == FieldType::Card)
 	{
 		std::cout << "Draw card!" << std::endl;
+
+		CardModel* card = board->drawCard();
+
+		card->doAction(board);
 
 		ConsoleUtil::waitForAnyInput();
 	}

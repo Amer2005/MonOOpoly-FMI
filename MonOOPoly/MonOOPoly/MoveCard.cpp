@@ -1,7 +1,8 @@
 #include "MoveCard.h"
+#include "Board.h"
+#include "Bank.h"
 
-
-void MoveCard::doAction(Board* board, Bank* bank)
+void MoveCard::doAction(Board* board)
 {
 	int playerIndex = board->getActivePlayerIndex();
 	Player* player = board->getPlayerByIndex(playerIndex);

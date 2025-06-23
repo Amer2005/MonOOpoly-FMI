@@ -24,4 +24,6 @@ public:
 
     static const int MoneyChangeMaxCardAmount;
     static const int TakeMoneyAmount;
+
+    static const int NumberOfCardsInDeck;
 };

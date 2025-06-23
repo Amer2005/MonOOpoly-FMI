@@ -1,9 +1,10 @@
 #pragma once
-#include "Board.h"
-#include "Bank.h"
+
+
+class Board;
 
 class CardModel
 {
 public:
-	virtual void doAction(Board* board, Bank* bank);
+	virtual void doAction(Board* board);
 };

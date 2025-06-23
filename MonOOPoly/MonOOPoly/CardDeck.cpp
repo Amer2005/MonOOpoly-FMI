@@ -35,7 +35,7 @@ void CardDeck::generateCards()
 	}
 }
 
-void CardDeck::drawCard(Board* board, Bank* bank)
+CardModel* CardDeck::drawCard()
 {
 	CardModel* card = cards[currentDeckPosition];
 
@@ -43,7 +43,7 @@ void CardDeck::drawCard(Board* board, Bank* bank)
 
 	currentDeckPosition = currentDeckPosition % cardCount;
 
-	card->doAction(board, bank);
+	return card;
 }
 
 CardDeck::CardDeck(int numberOfCards)
