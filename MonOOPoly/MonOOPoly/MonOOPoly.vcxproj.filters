@@ -43,6 +43,9 @@
     <Filter Include="Header Files\Models\Commands">
       <UniqueIdentifier>{6e49c0dd-f625-458a-8165-5324b44d303d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Models\Cards">
+      <UniqueIdentifier>{a8def7d2-ae53-4750-974a-5d7330c1e8cb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -120,6 +123,21 @@
     <ClCompile Include="UpgradePropertyCommand.cpp">
       <Filter>Source Files\Models\Commands</Filter>
     </ClCompile>
+    <ClCompile Include="CardDeck.cpp">
+      <Filter>Source Files\Models\Cards</Filter>
+    </ClCompile>
+    <ClCompile Include="CardModel.cpp">
+      <Filter>Source Files\Models\Cards</Filter>
+    </ClCompile>
+    <ClCompile Include="GiveMoneyCard.cpp">
+      <Filter>Source Files\Models\Cards</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveCard.cpp">
+      <Filter>Source Files\Models\Cards</Filter>
+    </ClCompile>
+    <ClCompile Include="TakeMoneyCard.cpp">
+      <Filter>Source Files\Models\Cards</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyString.h">
@@ -138,9 +156,6 @@
       <Filter>Header Files\Models</Filter>
     </ClInclude>
     <ClInclude Include="CardDeck.h">
-      <Filter>Header Files\Models\Cards</Filter>
-    </ClInclude>
-    <ClInclude Include="Card.h">
       <Filter>Header Files\Models\Cards</Filter>
     </ClInclude>
     <ClInclude Include="Field.h">
@@ -202,6 +217,18 @@
     </ClInclude>
     <ClInclude Include="UpgradePropertyCommand.h">
       <Filter>Header Files\Models\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="CardModel.h">
+      <Filter>Header Files\Models\Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="GiveMoneyCard.h">
+      <Filter>Header Files\Models\Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="TakeMoneyCard.h">
+      <Filter>Header Files\Models\Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveCard.h">
+      <Filter>Header Files\Models\Cards</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

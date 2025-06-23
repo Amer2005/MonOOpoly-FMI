@@ -19,3 +19,6 @@ const int Config::MaxNumberOfCastles = 1;
 
 const int Config::CottagePriceIncreasePercentage = 15;
 const int Config::CastlePriceIncreasePercentage = 50;
+
+const int Config::MoneyChangeMaxCardAmount = 200;
+const int Config::TakeMoneyAmount = 100;

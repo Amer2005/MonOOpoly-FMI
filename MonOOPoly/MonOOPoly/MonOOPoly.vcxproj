@@ -129,7 +129,9 @@
   <ItemGroup>
     <ClCompile Include="Bank.cpp" />
     <ClCompile Include="Board.cpp" />
+    <ClCompile Include="CardDeck.cpp" />
     <ClCompile Include="CardField.cpp" />
+    <ClCompile Include="CardModel.cpp" />
     <ClCompile Include="CommandExecutor.cpp" />
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="ConsoleUtil.cpp" />
@@ -137,10 +139,12 @@
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="FieldType.h" />
     <ClCompile Include="GetPlayersInfoCommand.cpp" />
+    <ClCompile Include="GiveMoneyCard.cpp" />
     <ClCompile Include="GoToJailField.cpp" />
     <ClCompile Include="JailField.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Monopoly.cpp" />
+    <ClCompile Include="MoveCard.cpp" />
     <ClCompile Include="MoveForwardCommand.cpp" />
     <ClCompile Include="MyString.cpp" />
     <ClCompile Include="ParkingField.cpp" />
@@ -150,15 +154,16 @@
     <ClCompile Include="ResignCommand.cpp" />
     <ClCompile Include="StartField.cpp" />
     <ClCompile Include="StartNewGameCommand.cpp" />
+    <ClCompile Include="TakeMoneyCard.cpp" />
     <ClCompile Include="TradeCommand.cpp" />
     <ClCompile Include="UpgradePropertyCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bank.h" />
     <ClInclude Include="Board.h" />
-    <ClInclude Include="Card.h" />
     <ClInclude Include="CardDeck.h" />
     <ClInclude Include="CardField.h" />
+    <ClInclude Include="CardModel.h" />
     <ClInclude Include="ColorType.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandExecutor.h" />
@@ -167,9 +172,11 @@
     <ClInclude Include="Dice.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="GetPlayersInfoCommand.h" />
+    <ClInclude Include="GiveMoneyCard.h" />
     <ClInclude Include="GoToJailField.h" />
     <ClInclude Include="JailField.h" />
     <ClInclude Include="Monopoly.h" />
+    <ClInclude Include="MoveCard.h" />
     <ClInclude Include="MoveForwardCommand.h" />
     <ClInclude Include="MyString.h" />
     <ClInclude Include="ParkingField.h" />
@@ -179,6 +186,7 @@
     <ClInclude Include="ResignCommand.h" />
     <ClInclude Include="StartField.h" />
     <ClInclude Include="StartNewGameCommand.h" />
+    <ClInclude Include="TakeMoneyCard.h" />
     <ClInclude Include="TradeCommand.h" />
     <ClInclude Include="UpgradePropertyCommand.h" />
   </ItemGroup>

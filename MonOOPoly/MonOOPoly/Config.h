@@ -21,4 +21,7 @@ public:
 
     static const int CottagePriceIncreasePercentage;
     static const int CastlePriceIncreasePercentage;
+
+    static const int MoneyChangeMaxCardAmount;
+    static const int TakeMoneyAmount;
 };

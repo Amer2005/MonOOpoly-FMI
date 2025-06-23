@@ -7,5 +7,10 @@ void Dice::init()
 
 int Dice::rollDice()
 {
-	return (std::rand() % 6) + 1;
+	return generateRandomNumberInclusive(1,6);
+}
+
+int Dice::generateRandomNumberInclusive(int min, int max)
+{
+	return (std::rand() % (max - min + 1)) + min;
 }

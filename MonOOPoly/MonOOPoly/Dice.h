@@ -7,4 +7,6 @@ public:
 	static void init();
 
 	static int rollDice();
+
+	static int generateRandomNumberInclusive(int min, int max);
 };
