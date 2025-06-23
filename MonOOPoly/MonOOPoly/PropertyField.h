@@ -11,6 +11,9 @@ private:
 	int defaultRent;
 	int cottagePrice;
 	int castlePrice;
+	
+	int numberOfCottages;
+	int numberOfCastles;
 
 	MyString color;
 	Player* owner = nullptr;
@@ -30,6 +33,12 @@ public:
 
 	Player* getOwner();
 	void setOwner(Player* newOwner);
+
+	int getNumberOfCottages();
+	void setNumberOfCottages(int value);
+
+	int getNumberOfCastles();
+	void setNumberOfCastles(int value);
 
 	PrintableField* getPrintable() override;
 };

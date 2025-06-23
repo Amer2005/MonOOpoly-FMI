@@ -1,6 +1,6 @@
 #include "Player.h"
 #include "Config.h"
-#include "ConsoleColor.h"
+#include "ConsoleUtil.h"
 
 Player::Player(int index, const MyString& name)
 {
@@ -67,11 +67,11 @@ bool Player::getIsInJail()
 
 void Player::printName()
 {
-	ConsoleColor::setConsoleColor(static_cast<ColorType>(this->index + 1));
+	ConsoleUtil::setConsoleColor(static_cast<ColorType>(this->index + 1));
 
 	std::cout << this->name;
 
-	ConsoleColor::setConsoleColor(ColorType::Default);
+	ConsoleUtil::setConsoleColor(ColorType::Default);
 }
 
 void Player::setIsInJail(bool value)

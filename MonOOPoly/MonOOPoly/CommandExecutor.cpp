@@ -4,6 +4,8 @@
 #include "StartNewGameCommand.h";
 #include "MoveForwardCommand.h"
 #include "ResignCommand.h"
+#include "TradeCommand.h"
+#include "GetPlayersInfoCommand.h"
 
 void CommandExecutor::executeCommand(const MyString& input)
 {
@@ -21,6 +23,14 @@ void CommandExecutor::executeCommand(const MyString& input)
 	{
 		command = new ResignCommand();
 	}
+	else if (input == "trade")
+	{
+		command = new TradeCommand();
+	}
+	else if (input == "players")
+	{
+		command = new GetPlayersInfoCommand();
+	}
 	else
 	{
 		throw std::runtime_error("Please enter a valid command");
@@ -28,6 +38,8 @@ void CommandExecutor::executeCommand(const MyString& input)
 
 
 	command->run(board, bank);
+	
+	delete command;
 }
 
 CommandExecutor::CommandExecutor(Board* board, Bank* bank)

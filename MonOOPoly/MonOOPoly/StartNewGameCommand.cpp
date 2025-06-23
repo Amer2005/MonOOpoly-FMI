@@ -31,4 +31,11 @@ void StartNewGameCommand::run(Board* board, Bank* bank) const
 	}
 
 	board->setPlayers(names, playerCount);
+
+	for (int i = 0; i < playerCount; i++)
+	{
+		delete names[i];
+	}
+	
+	delete[] names;
 }

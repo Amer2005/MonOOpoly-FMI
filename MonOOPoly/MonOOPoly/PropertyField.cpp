@@ -24,8 +24,19 @@ int PropertyField::getCastlePrice() {
 
 int PropertyField::getCurrentRent()
 {
-	return 2000;
-	return this->defaultRent;
+	double rent = this->defaultRent;
+
+	for (int i = 0; i < numberOfCottages; i++)
+	{
+		rent = rent * (Config::CottagePriceIncreasePercentage + 100) / 100;
+	}
+
+	for (int i = 0; i < numberOfCastles; i++)
+	{
+		rent = rent * (Config::CastlePriceIncreasePercentage + 100) / 100;
+	}
+
+	return rent;
 }
 
 Player* PropertyField::getOwner() {
@@ -34,6 +45,36 @@ Player* PropertyField::getOwner() {
 
 void PropertyField::setOwner(Player* newOwner) {
 	owner = newOwner;
+}
+
+int PropertyField::getNumberOfCottages()
+{
+	return this->numberOfCottages;
+}
+
+void PropertyField::setNumberOfCottages(int value)
+{
+	if (value < 0 || value > Config::MaxNumberOfCottages)
+	{
+		return;
+	}
+
+	this->numberOfCottages = value;
+}
+
+int PropertyField::getNumberOfCastles()
+{
+	return this->numberOfCastles;
+}
+
+void PropertyField::setNumberOfCastles(int value)
+{
+	if (value < 0 || value > Config::MaxNumberOfCastles)
+	{
+		return;
+	}
+
+	this->numberOfCottages = value;
 }
 
 PropertyField::PropertyField(int index, const MyString& name,
@@ -45,6 +86,8 @@ PropertyField::PropertyField(int index, const MyString& name,
 	this->defaultRent = defaultRent;
 	this->cottagePrice = cottagePrice;
 	this->castlePrice = castlePrice;
+	this->numberOfCottages = 0;
+	this->numberOfCastles = 0;
 }
 
 PrintableField* PropertyField::getPrintable()
@@ -81,6 +124,20 @@ PrintableField* PropertyField::getPrintable()
 	indexLine = "(" + indexLine + ")";
 
 	printableField->setLine(2, indexLine);
+
+	MyString buildingsLine = "";
+
+	for (int i = 0;i < this->getNumberOfCottages();i++)
+	{
+		buildingsLine += "^ ";
+	}
+
+	for (int i = 0;i < this->getNumberOfCastles();i++)
+	{
+		buildingsLine += "#";
+	}
+
+	printableField->setLine(3, buildingsLine);
 
 	return printableField;
 }

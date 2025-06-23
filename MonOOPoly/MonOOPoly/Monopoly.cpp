@@ -4,7 +4,7 @@
 #include "Bank.h"
 #include "CommandExecutor.h"
 #include "Dice.h"
-#include "ConsoleColor.h"
+#include "ConsoleUtil.h"
 
 void Monopoly::mainMenu()
 {
@@ -16,6 +16,7 @@ void Monopoly::mainMenu()
 	std::cout << "start <player count> - Start a new game with 2 - 6 players" << std::endl;
 
 	std::cout << "load - Load game from save file" << std::endl;
+	std::cout << "exit - Exit the game" << std::endl;
 }
 
 void Monopoly::clearConsole()
@@ -35,16 +36,20 @@ void Monopoly::printTurnMessage(Board* board)
 
 	std::cout << "'s turn" << std::endl;
 	std::cout << "Current position: " << player->getCurrentFieldIndex() << std::endl;
+	std::cout << "Current balance: " << player->getBalance() <<"$" << std::endl;
 	std::cout << "Valid commands: " << std::endl;
-	std::cout << "roll - roll the dice and move forward" << std::endl;
-	std::cout << "trade <player name> <property index> <value> - offer to sell property to player" << std::endl;
-	std::cout << "resign - give up and forfeit the game" << std::endl;
+	std::cout << "roll - Roll the dice and move forward" << std::endl;
+	std::cout << "trade <buyer index> <property index> <value> - Offer to sell property to buyer" << std::endl;
+	std::cout << "players - Get info of all players" << std::endl;
+	std::cout << "resign - Give up and forfeit the game" << std::endl;
+	std::cout << "upgrade <property index> - Add a house/hotel to property" << std::endl;
+	std::cout << "exit - Save and exit game" << std::endl;
 }
 
 void Monopoly::run()
 {
 	Dice::init();
-	ConsoleColor::init();
+	ConsoleUtil::init();
 
 	Board* board = new Board(Config::SaveFilePath);
 	Bank* bank = new Bank();
@@ -72,6 +77,8 @@ void Monopoly::run()
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			
 			exception = true;
+
+			ConsoleUtil::waitForAnyInput();
 		}
 
 		if (board->getIsGameOver())
@@ -88,15 +95,14 @@ void Monopoly::run()
 
 			break;
 		}
-
-		if (!exception)
-		{
-			clearConsole();
-		}
-
+		
+		clearConsole();
 
 		board->print();
 
 		printTurnMessage(board);
 	}
+
+	delete board;
+	delete bank;
 }

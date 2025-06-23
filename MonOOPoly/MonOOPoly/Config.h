@@ -9,9 +9,16 @@ public:
     static const int FieldHeight;
 
     static const int StartingMoney;
+    static const int MoneyGivenOnStartField;
     
     static const char* SaveFilePath;
 
     static const int BoardWidth;
     static const int BoardHeight;
+
+    static const int MaxNumberOfCottages;
+    static const int MaxNumberOfCastles;
+
+    static const int CottagePriceIncreasePercentage;
+    static const int CastlePriceIncreasePercentage;
 };

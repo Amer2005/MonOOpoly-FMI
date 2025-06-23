@@ -27,6 +27,8 @@ private:
 	
 	int getCorrectIndex(int index);
 
+	void free();
+
 public:
 
 	Board(const char* loadFromFilePath);
@@ -50,6 +52,10 @@ public:
 	void endTurn();
 
 	int getNumberOfPropertiesOwnedByPlayer(int playerIndex);
+
+	int getPlayerCount();
+
+	int getFieldCount();
 
 	~Board();
 };

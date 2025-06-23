@@ -4,7 +4,7 @@
 #undef min
 #include "ColorType.h"
 
-class ConsoleColor
+class ConsoleUtil
 {
 private:
 	static HANDLE hConsole;
@@ -15,4 +15,6 @@ public:
 	void static setConsoleColor(ColorType color);
 
 	int static getConsoleColorCode(ColorType color);
+
+	void static waitForAnyInput();
 };

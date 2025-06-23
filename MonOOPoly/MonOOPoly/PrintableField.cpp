@@ -1,7 +1,7 @@
 #include "PrintableField.h"
 #include "Config.h"
 #include "MyString.h"
-#include "ConsoleColor.h"
+#include "ConsoleUtil.h"
 
 PrintableField::PrintableField()
 {
@@ -21,7 +21,7 @@ void PrintableField::printLine(int lineNumber)
 {
 	int maxLength = Config::FieldWidth;
 
-	ConsoleColor::setConsoleColor(this->color);
+	ConsoleUtil::setConsoleColor(this->color);
 
 	if (lineNumber == -1)
 	{
@@ -34,7 +34,7 @@ void PrintableField::printLine(int lineNumber)
 
 		std::cout << "+";
 
-		ConsoleColor::setConsoleColor(ColorType::Default);
+		ConsoleUtil::setConsoleColor(ColorType::Default);
 
 		return;
 	}
@@ -46,7 +46,7 @@ void PrintableField::printLine(int lineNumber)
 			std::cout << " ";
 		}
 
-		ConsoleColor::setConsoleColor(ColorType::Default);
+		ConsoleUtil::setConsoleColor(ColorType::Default);
 
 		return;
 	}
@@ -98,7 +98,7 @@ void PrintableField::printLine(int lineNumber)
 
 	std::cout << printedLine;
 
-	ConsoleColor::setConsoleColor(ColorType::Default);
+	ConsoleUtil::setConsoleColor(ColorType::Default);
 }
 
 void PrintableField::setLine(int lineNumber, const MyString& content)

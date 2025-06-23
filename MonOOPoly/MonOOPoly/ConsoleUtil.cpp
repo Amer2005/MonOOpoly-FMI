@@ -1,18 +1,18 @@
-#include "ConsoleColor.h"
+#include "ConsoleUtil.h"
 
-HANDLE ConsoleColor::hConsole;
+HANDLE ConsoleUtil::hConsole;
 
-void ConsoleColor::init()
+void ConsoleUtil::init()
 {
 	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 }
 
-void ConsoleColor::setConsoleColor(ColorType color)
+void ConsoleUtil::setConsoleColor(ColorType color)
 {
 	SetConsoleTextAttribute(hConsole, getConsoleColorCode(color));
 }
 
-int ConsoleColor::getConsoleColorCode(ColorType color)
+int ConsoleUtil::getConsoleColorCode(ColorType color)
 {
 	switch (color)
 	{
@@ -48,4 +48,12 @@ int ConsoleColor::getConsoleColorCode(ColorType color)
 	default:
 		return 15;
 	}
+}
+
+void ConsoleUtil::waitForAnyInput()
+{
+	system("pause");
+	//std::cout << "Type anything to continue" << std::endl;
+	//MyString input = "";
+	//std::cin >> input;
 }

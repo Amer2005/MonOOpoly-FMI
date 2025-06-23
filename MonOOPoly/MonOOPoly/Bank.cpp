@@ -1,4 +1,6 @@
 #include "Bank.h"
+#include "ConsoleUtil.h"
+#include "TradeCommand.h"
 
 void Bank::buyProperty(PropertyField* propertyField, Player* player)
 {
@@ -56,48 +58,71 @@ void Bank::payRent(Board* board, PropertyField* propertyField, Player* renter)
 		std::cout << "Sell properties or trade them to players" << std::endl;
 		std::cout << "Commands:" << std::endl;
 		std::cout << "sell <property index>" << std::endl;
+		std::cout << "sell <property index>" << std::endl;
+		std::cout << "trade <buyer index> <property index> <value> - Offer to sell property to buyer" << std::endl;
 
 		while (true)
 		{
-			if (board->getNumberOfPropertiesOwnedByPlayer(renter->getIndex()) <= 0)
+			try
 			{
-				renter->setIsResigned(true);
-
-				std::cout << "Player ";
-				renter->printName();
-				std::cout << " has bankrupted!" << std::endl;
-
-				break;
-			}
-
-			MyString input = "";
-			std::cin >> input;
-
-			if (input == "sell")
-			{
-				int index;
-				std::cin >> index;
-
-				Field* field = board->getFieldByIndex(index);
-
-				if (field->getType() == FieldType::Property)
+				if (board->getNumberOfPropertiesOwnedByPlayer(renter->getIndex()) <= 0)
 				{
-					PropertyField* soldField = static_cast<PropertyField*>(field);
+					renter->setIsResigned(true);
 
-					if (soldField->getOwner() == nullptr || soldField->getOwner()->getIndex() != renter->getIndex())
+					std::cout << "Player ";
+					renter->printName();
+					std::cout << " has bankrupted!" << std::endl;
+
+					break;
+				}
+
+				MyString input = "";
+				std::cin >> input;
+
+				if (input == "sell")
+				{
+					int index;
+					std::cin >> index;
+
+					Field* field = board->getFieldByIndex(index);
+
+					if (field->getType() == FieldType::Property)
 					{
-						renter->printName();
-						std::cout << " doesnt own the property"<<std::endl;
+						PropertyField* soldField = static_cast<PropertyField*>(field);
+
+						if (soldField->getOwner() == nullptr || soldField->getOwner()->getIndex() != renter->getIndex())
+						{
+							renter->printName();
+							std::cout << " doesnt own the property" << std::endl;
+						}
+						else
+						{
+							sellProperty(soldField, renter);
+						}
 					}
 					else
 					{
-						sellProperty(soldField, renter);
+						std::cout << "Invalid property" << std::endl;
 					}
 				}
-				else
+				if (input == "trade")
 				{
-					std::cout << "Invalid property" << std::endl;
+					TradeCommand* tradeCommand = new TradeCommand();
+
+					tradeCommand->run(board, this);
+
+					delete tradeCommand;
 				}
+
+				
+			}
+			catch (const std::exception& e)
+			{
+				std::cout << e.what() << std::endl;
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+				ConsoleUtil::waitForAnyInput();
 			}
 
 			renterBalance = renter->getBalance();
@@ -110,7 +135,6 @@ void Bank::payRent(Board* board, PropertyField* propertyField, Player* renter)
 				payRent(board, propertyField, renter);
 				break;
 			}
-
 			
 		}
 	}

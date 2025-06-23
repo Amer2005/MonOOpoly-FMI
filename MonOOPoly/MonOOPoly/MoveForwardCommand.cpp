@@ -2,6 +2,8 @@
 #include "Dice.h"
 #include "PropertyField.h"
 #include <iostream>
+#include "ConsoleUtil.h"
+#include "Config.h"
 
 void MoveForwardCommand::run(Board* board, Bank* bank) const
 {
@@ -9,14 +11,6 @@ void MoveForwardCommand::run(Board* board, Bank* bank) const
 	Player* player = board->getPlayerByIndex(activePlayerIndex);
 
 	this->rollDice(board, bank, player, 1);
-}
-
-void MoveForwardCommand::waitForAnyInput() const
-{
-	system("pause");
-	//std::cout << "Type anything to continue" << std::endl;
-	//MyString input = "";
-	//std::cin >> input;
 }
 
 void MoveForwardCommand::rollDice(Board* board, Bank* bank, Player* player, int numberOfRolls) const
@@ -36,7 +30,7 @@ void MoveForwardCommand::rollDice(Board* board, Bank* bank, Player* player, int 
 
 			player->setIsInJail(false);
 
-			waitForAnyInput();
+			ConsoleUtil::waitForAnyInput();
 
 			rollDice(board, bank, player, numberOfRolls + 1);
 		}
@@ -44,11 +38,13 @@ void MoveForwardCommand::rollDice(Board* board, Bank* bank, Player* player, int 
 		{
 			std::cout << "You stay in jail" << std::endl;
 
-			waitForAnyInput();
+			ConsoleUtil::waitForAnyInput();
 
 			if(numberOfRolls == 1)
 				board->endTurn();
 		}
+
+		delete[] dice;
 
 		return;
 	}
@@ -58,6 +54,8 @@ void MoveForwardCommand::rollDice(Board* board, Bank* bank, Player* player, int 
 		std::cout << "CHEATER! You go to jail" << std::endl;
 
 		goToJail(board, bank, player);
+
+		delete[] dice;
 
 		return;
 	}
@@ -92,13 +90,20 @@ void MoveForwardCommand::rollDice(Board* board, Bank* bank, Player* player, int 
 	{
 		std::cout << "Draw card!" << std::endl;
 
-		waitForAnyInput();
+		ConsoleUtil::waitForAnyInput();
+	}
+	else if (fieldType == FieldType::Start)
+	{
+		int balance = player->getBalance();
+		balance += Config::MoneyGivenOnStartField;
+
+		player->setBalance(balance);
 	}
 	else
 	{
 		std::cout << "You landed on: " << field->getName() << "(" << field->getIndex() << ")" <<std::endl;
 		
-		waitForAnyInput();
+		ConsoleUtil::waitForAnyInput();
 	}
 
 	if (dice[0] == dice[1] && !board->getIsGameOver())
@@ -107,6 +112,8 @@ void MoveForwardCommand::rollDice(Board* board, Bank* bank, Player* player, int 
 
 		rollDice(board, bank, player, numberOfRolls + 1);
 	}
+
+	delete[] dice;
 
 	if (numberOfRolls != 1)
 	{
@@ -145,7 +152,7 @@ void MoveForwardCommand::goToJail(Board* board, Bank* bank, Player* player) cons
 		std::cout << jailFieldIndex << std::endl;
 	}
 
-	waitForAnyInput();
+	ConsoleUtil::waitForAnyInput();
 }
 
 void MoveForwardCommand::landOnProperty(Board* board, Bank* bank, Player* player, Field* field) const
@@ -160,7 +167,7 @@ void MoveForwardCommand::landOnProperty(Board* board, Bank* bank, Player* player
 		{
 			std::cout << "Not enough money to buy property"<<std::endl;
 			
-			waitForAnyInput();
+			ConsoleUtil::waitForAnyInput();
 			
 			return;
 		}
@@ -178,7 +185,7 @@ void MoveForwardCommand::landOnProperty(Board* board, Bank* bank, Player* player
 			std::cout << "Property bought successfuly for " << propertyField->getPrice() << "$" << std::endl;
 			std::cout << "New balance: " << player->getBalance() <<"$"<< std::endl;
 			
-			waitForAnyInput();
+			ConsoleUtil::waitForAnyInput();
 
 			return;
 		}
@@ -204,7 +211,7 @@ void MoveForwardCommand::landOnProperty(Board* board, Bank* bank, Player* player
 			bank->payRent(board, propertyField, player);
 		}
 
-		waitForAnyInput();
+		ConsoleUtil::waitForAnyInput();
 	}
 
 }

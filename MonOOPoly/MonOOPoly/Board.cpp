@@ -204,6 +204,19 @@ int Board::getCorrectIndex(int index)
     return index;
 }
 
+void Board::free()
+{
+    for (int i = 0; i < numberOfFields; ++i) {
+        delete fields[i];
+    }
+    delete[] fields;
+
+    for (int i = 0; i < playerCount; ++i) {
+        delete players[i];
+    }
+    delete[] players;
+}
+
 void Board::print()
 {
     PrintableField** printableFields = new PrintableField* [numberOfFields] {nullptr};
@@ -367,14 +380,16 @@ int Board::getNumberOfPropertiesOwnedByPlayer(int playerIndex)
     return result;
 }
 
-Board::~Board() {
-    for (int i = 0; i < numberOfFields; ++i) {
-        delete fields[i];
-    }
-    delete[] fields;
+int Board::getPlayerCount()
+{
+    return this->playerCount;
+}
 
-    for (int i = 0; i < playerCount; ++i) {
-        delete players[i];
-    }
-    delete[] players;
+int Board::getFieldCount()
+{
+    return this->numberOfFields;
+}
+
+Board::~Board() {
+    free();
 }

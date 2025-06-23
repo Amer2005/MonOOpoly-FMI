@@ -132,10 +132,11 @@
     <ClCompile Include="CardField.cpp" />
     <ClCompile Include="CommandExecutor.cpp" />
     <ClCompile Include="Config.cpp" />
-    <ClCompile Include="ConsoleColor.cpp" />
+    <ClCompile Include="ConsoleUtil.cpp" />
     <ClCompile Include="Dice.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="FieldType.h" />
+    <ClCompile Include="GetPlayersInfoCommand.cpp" />
     <ClCompile Include="GoToJailField.cpp" />
     <ClCompile Include="JailField.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -148,8 +149,9 @@
     <ClCompile Include="PropertyField.cpp" />
     <ClCompile Include="ResignCommand.cpp" />
     <ClCompile Include="StartField.cpp" />
-    <ClCompile Include="StartField.h" />
     <ClCompile Include="StartNewGameCommand.cpp" />
+    <ClCompile Include="TradeCommand.cpp" />
+    <ClCompile Include="UpgradePropertyCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bank.h" />
@@ -161,9 +163,10 @@
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandExecutor.h" />
     <ClInclude Include="Config.h" />
-    <ClInclude Include="ConsoleColor.h" />
+    <ClInclude Include="ConsoleUtil.h" />
     <ClInclude Include="Dice.h" />
     <ClInclude Include="Field.h" />
+    <ClInclude Include="GetPlayersInfoCommand.h" />
     <ClInclude Include="GoToJailField.h" />
     <ClInclude Include="JailField.h" />
     <ClInclude Include="Monopoly.h" />
@@ -174,7 +177,10 @@
     <ClInclude Include="PrintableField.h" />
     <ClInclude Include="PropertyField.h" />
     <ClInclude Include="ResignCommand.h" />
+    <ClInclude Include="StartField.h" />
     <ClInclude Include="StartNewGameCommand.h" />
+    <ClInclude Include="TradeCommand.h" />
+    <ClInclude Include="UpgradePropertyCommand.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Fields.txt">
